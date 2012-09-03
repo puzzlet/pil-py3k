@@ -197,6 +197,7 @@ class pil_build_ext(build_ext):
         add_directory(include_dirs, "/usr/local/include")
 
         add_directory(library_dirs, "/usr/lib")
+        add_directory(library_dirs, "/usr/lib/x86_64-linux-gnu")
         add_directory(include_dirs, "/usr/include")
 
         # XXX
