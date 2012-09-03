@@ -479,7 +479,10 @@ def _save(im, fp, filename, chunk=putchunk, check=0):
                 0)))                              # 12: interlace flag
 
     if im.mode == "P":
-        chunk(fp, b"PLTE", im.im.getpalette("RGB"))
+        p = im.im.getpalette("RGB")
+        if len(p) > 3*n:
+            p = p[:3*n]
+        chunk(fp, b"PLTE", p)
 
     if "transparency" in im.encoderinfo:
         if im.mode == "P":
